@@ -3,19 +3,24 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# Django stuff:
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
-media
+# Django / Backend
+backend/local_settings.py
+backend/db.sqlite3
+backend/db.sqlite3-journal
+backend/media/
+backend/venv/
+backend/.env
 
-# Virtual Environment
-venv/
-env/
-ENV/
-.venv/
+# React / Frontend
+frontend/node_modules/
+frontend/build/
+frontend/.env
+frontend/.env.local
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
 
-# Extra stuff
+# OS/General
 .DS_Store
-.env
 *.log
+.vscode/
