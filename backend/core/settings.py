@@ -75,10 +75,17 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 DATABASES = {
+   
+  
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'mv_ecommerce_db',
+        'USER': 'postgres',          # Your default pgAdmin username
+        'PASSWORD': 'dream', # The password you set when installing pgAdmin
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
+
 }
 
 
