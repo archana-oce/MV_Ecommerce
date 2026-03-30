@@ -15,7 +15,7 @@ class Product(models.Model):
     
     # Advanced Fields
     average_rating = models.FloatField(default=0.0)
-    update_history = models.JSONField(default=list, blank=True) # Industry-grade Audit Log
+    update_history = models.JSONField(default=list, blank=True) 
     
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

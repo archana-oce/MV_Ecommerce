@@ -2,7 +2,6 @@ from django.db import models
 from accounts.models import User
 from products.models import Product
 
-# --- CART SYSTEM ---
 class Cart(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='cart')
     created_at = models.DateTimeField(auto_now_add=True)
@@ -15,7 +14,6 @@ class CartItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
 
-# --- ORDER SYSTEM ---
 class Order(models.Model):
     STATUS_CHOICES = (
         ('pending', 'Pending'),
@@ -37,7 +35,6 @@ class OrderItem(models.Model):
     quantity = models.PositiveIntegerField()
     price = models.DecimalField(max_digits=10, decimal_places=2) # Captured price at time of purchase
 
-# --- FEEDBACK SYSTEM ---
 class Review(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='reviews')
@@ -46,4 +43,4 @@ class Review(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        unique_together = ('user', 'product') # One review per user per product
+        unique_together = ('user', 'product') 
