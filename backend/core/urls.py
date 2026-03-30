@@ -18,11 +18,13 @@ from django.contrib import admin
 from django.urls import path, include
 from accounts.views import MyTokenObtainPairView,RegisterView
 from rest_framework_simplejwt.views import TokenRefreshView
+from products.views import ProductListCreateView,ProductRetrieveUpdateDestroyView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/products/', include('products.urls')),
-    path('api/login/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('login/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('register/', RegisterView.as_view(), name='auth_register'),
+    path('api/auth/login/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/auth/login/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('api/register/', RegisterView.as_view(), name='auth_register'),
+    path('products/', ProductListCreateView.as_view(), name='product-list-create'),
+    path('products/<int:pk>/', ProductRetrieveUpdateDestroyView.as_view(), name='product-detail'),
 ]

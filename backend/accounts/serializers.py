@@ -33,12 +33,12 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         data = super().validate(attrs)
         data['role'] = self.user.role
         
-        # If the user is a Vendor (created by you), tell React their status
+       
         if self.user.role == 'vendor':
             try:
                 data['is_approved'] = self.user.vendor_profile.is_approved
             except Vendor.DoesNotExist:
-                # Safety check if you forgot to create the profile in Admin
+                
                 data['is_approved'] = False
                 
         return data

@@ -15,10 +15,12 @@ class User(AbstractUser):
 
     def __str__(self):
         return f"{self.email} ({self.role})"
+    
     def save(self, *args, **kwargs):
         if self.is_superuser and self.role != 'admin':
             self.role = 'admin'
         super().save(*args, **kwargs)
+        
 class Vendor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='vendor_profile')
     phone = models.CharField(max_length=15)
