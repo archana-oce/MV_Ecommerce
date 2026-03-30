@@ -147,3 +147,11 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
 ]
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dwilaphr8',
+    'API_KEY': '586747633468612',
+    'API_SECRET': '7r1_BS-Z7g7l0J8DGJxe8_IvDWQ'
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

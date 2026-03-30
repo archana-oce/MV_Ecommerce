@@ -1,6 +1,6 @@
 from django.db import models
 from accounts.models import Vendor
-
+from cloudinary.models import CloudinaryField
 class Product(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
@@ -13,7 +13,7 @@ class Product(models.Model):
     color = models.CharField(max_length=50, blank=True, null=True)
     weight = models.CharField(max_length=50, blank=True, null=True)
     
- 
+    image = CloudinaryField('image', folder='products/')
     average_rating = models.FloatField(default=0.0)
     update_history = models.JSONField(default=list, blank=True) 
     
